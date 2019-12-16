@@ -1,4 +1,5 @@
-
+import Data.List
+import Data.Char
 func1 a b c = fst + snd
   where fst = (1 - b) / (1 + b)
         snd = abs ((c - 2 * a) / c ^ 2)

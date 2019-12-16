@@ -29,7 +29,8 @@ convert [] _ newone newones _ = (newones ,newone)
 convert arf@(el:fstmultt) ars@(els:sndmultt) newone snewone prev | el - prev > 1 = convert arf ars (newone ++ [prev + 1]) (snewone ++ [0]) (prev + 1)
                                   | otherwise = convert fstmultt sndmultt (newone ++ [el]) (snewone ++ [els]) el
           
-summ multt1 multt2 = [el1 + el2 | (el1, i) <- zip multt1 [0..], (el2, n) <- zip multt2 [0..], i == n]
+summ multt1 multt2 = (mm, [0..(length mm)])
+      where mm = [el1 + el2 | (el1, i) <- zip multt1 [0..], (el2, n) <- zip multt2 [0..], i == n]
 
 
 difmeb mult1 mult2 | length el1 >= length el2 = difm el1 (filllist el2 el1)
